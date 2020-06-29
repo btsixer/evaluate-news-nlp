@@ -14,7 +14,11 @@ module.exports = {
                 test: '/\.js$/',
                 exclude: /node_modules/,
                 loader: "babel-loader"
-            }
+            },
+	    {
+    		test: /\.scss$/,
+    		use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+	    }
         ]
     },
     plugins: [
@@ -31,5 +35,9 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         })
-    ]
+    ],
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
 }
