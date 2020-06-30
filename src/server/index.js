@@ -33,3 +33,15 @@ var textapi = new aylien({
    application_id: process.env.API_ID,
    application_key: process.env.API_KEY
 });
+
+app.post("/sentiment", (req, res) => {
+    textapi.sentiment({
+            url: req.body.url
+    }, (error, response) => {
+        if (error) {
+            return;
+        }
+        res.send(response);
+    });
+});
+
