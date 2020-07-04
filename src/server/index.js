@@ -7,6 +7,12 @@ const mockAPIResponse = require('./mockAPI.js')
 
 const app = express()
 
+const bodyParser =  require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+const cors = require('cors')
+app.use(cors())
 app.use(express.static('dist'))
 
 console.log(__dirname)
@@ -44,7 +50,3 @@ app.post("/sentiment", (req, res) => {
         res.send(response);
     });
 });
-
-const bodyParser =  require('body-parser')
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
