@@ -18,8 +18,8 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html')
+    // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
@@ -43,10 +43,25 @@ var textapi = new aylien({
 app.post("/sentiment", (req, res) => {
     textapi.sentiment({
             url: req.body.url
+    // 'text': 'John is a very good football player!'
     }, (error, response) => {
         if (error) {
+            console.log('api error')
             return;
         }
         res.send(response);
     });
 });
+
+// const getSentiment = async (baseURL, zipCode, apiKey)=>{
+//   const res = await fetch(`${baseURL}zip=${zipCode},us&appid=${apiKey}`)
+//   try {
+//     const projectData = await res.json();
+//     // console.log(projectData);
+//     // console.log(projectData.main['temp']);
+//     consol.elog(projectData.)
+//     return projectData;
+//   }  catch(error) {
+//     console.log('error', error);
+//   }
+// }
