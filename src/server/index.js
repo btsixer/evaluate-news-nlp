@@ -46,22 +46,9 @@ app.post("/sentiment", (req, res) => {
     // 'text': 'John is a very good football player!'
     }, (error, response) => {
         if (error) {
-            console.log('api error')
+	    console.log('api error', error, response)
             return;
         }
         res.send(response);
     });
 });
-
-// const getSentiment = async (baseURL, zipCode, apiKey)=>{
-//   const res = await fetch(`${baseURL}zip=${zipCode},us&appid=${apiKey}`)
-//   try {
-//     const projectData = await res.json();
-//     // console.log(projectData);
-//     // console.log(projectData.main['temp']);
-//     consol.elog(projectData.)
-//     return projectData;
-//   }  catch(error) {
-//     console.log('error', error);
-//   }
-// }
