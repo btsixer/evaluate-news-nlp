@@ -41,14 +41,24 @@ var textapi = new aylien({
 });
 
 app.post("/sentiment", (req, res) => {
+    const newData = {
+      polarity: req.body.polarity,
+      subjectivity: req.body.subjectivity,
+      text: req.body.text,
+      polarity_confidence: req.body.polarity_confidence,
+      subjectivity_confidence: req.body.subjectivity_confidence
+    };
     textapi.sentiment({
             url: req.body.url
-    // 'text': 'John is a very good football player!'
     }, (error, response) => {
         if (error) {
 	    console.log('api error', error, response)
             return;
         }
+        projectData = newData;
+        console.log(projectData);
+        // console.log(url);
+        // console.log(response);
         res.send(response);
     });
 });
