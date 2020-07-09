@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 function validateInputRequest(req, res, next) {
-    if(!req.body.text ) { // check for input validation
+    if(!req.body.url ) { // check for input validation
         return res.status(400).json({
            message: 'Invalid input'
         })
@@ -17,7 +17,7 @@ function PostHandler(req, res, next) {
         application_key: process.env.APP_KEY
     });
     textapi.sentiment({
-      'url': req.body.text
+      'url': req.body.url
     }, function(error, response) {
         res.send(response)
     });

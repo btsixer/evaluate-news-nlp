@@ -40,25 +40,28 @@ var textapi = new aylien({
    application_key: process.env.API_KEY
 });
 
-app.post("/sentiment", (req, res) => {
-    const newData = {
-      polarity: req.body.polarity,
-      subjectivity: req.body.subjectivity,
-      text: req.body.text,
-      polarity_confidence: req.body.polarity_confidence,
-      subjectivity_confidence: req.body.subjectivity_confidence
-    };
-    textapi.sentiment({
-            url: req.body.url
-    }, (error, response) => {
-        if (error) {
-	    console.log('api error', error, response)
-            return;
-        }
-        projectData = newData;
-        console.log(projectData);
-        // console.log(url);
-        // console.log(response);
-        res.send(response);
-    });
-});
+// app.post("/sentiment", (req, res) => {
+//     const newData = {
+//       polarity: req.body.polarity,
+//       subjectivity: req.body.subjectivity,
+//       text: req.body.text,
+//       polarity_confidence: req.body.polarity_confidence,
+//       subjectivity_confidence: req.body.subjectivity_confidence
+//     };
+//     textapi.sentiment({
+//             url: req.body.url
+//     }, (error, response) => {
+//         if (error) {
+// 	    console.log('api error', error, response)
+//             return;
+//         }
+//         projectData = newData;
+//         console.log(projectData);
+//         // console.log(url);
+//         // console.log(response);
+//         res.send(response);
+//     });
+// });
+
+const request = require('./request')
+app.post("/sentiment",request.validateInputRequest,request.PostHandler );

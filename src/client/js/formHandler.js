@@ -2,8 +2,11 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    checkUrl(formText)
+    // let formText = document.getElementById('name').value
+    // checkUrl(formText)
+    //take care that element id is 'url'
+    let url = document.getElementById('url').value;
+    checkUrl(url)
 
     let url = document.getElementById('name').value;
         fetch('/sentiment', {
@@ -14,15 +17,16 @@ function handleSubmit(event) {
             })
             .then(res => res.json())
             .then(function(res) {
-                document.getElementById('name').innerHTML= res.polarity
+                // document.getElementById('name').innerHTML= res.polarity
+                document.getElementById('results').innerHTML= res.polarity
             })
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message
-    })
+    // console.log("::: Form Submitted :::")
+    // fetch('http://localhost:8080/test')
+    // .then(res => res.json())
+    // .then(function(res) {
+    //     document.getElementById('results').innerHTML = res.message
+    // })
 }
 
 function checkUrl(url) {
