@@ -4,11 +4,11 @@ function handleSubmit(event) {
     // check what text was put into the form field
     // let formText = document.getElementById('name').value
     // checkUrl(formText)
-    //take care that element id is 'url'
+    // take care that element id is 'url'
     let url = document.getElementById('url').value;
     checkUrl(url)
 
-    let url = document.getElementById('name').value;
+    // let url = document.getElementById('name').value;
         fetch('/sentiment', {
                 method: "POST",
                 credentials: "same-origin",
