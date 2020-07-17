@@ -9,7 +9,7 @@ function handleSubmit(event) {
     checkUrl(url)
 
     // let url = document.getElementById('name').value;
-        fetch('/sentiment', {
+        fetch('http://localhost:8080/sentiment', {
                 method: "POST",
                 credentials: "same-origin",
                 headers: { "Content-Type": "application/json" },
@@ -18,8 +18,15 @@ function handleSubmit(event) {
             .then(res => res.json())
             .then(function(res) {
                 // document.getElementById('name').innerHTML= res.polarity
+                document.getElementById('results').innerHTML= res.text
                 document.getElementById('results').innerHTML= res.polarity
+                            // projectData.polarity = response.polarity;
+                            // projectData.subjectivity = response.subjectivity;
+                            // projectData.text = response.text;
+                            // projectData.polarity_confidence = response.polarity_confidence;
+                            // projectData.subjectivity_confidence = response.subjectivity_confidence;
             })
+
 
     // console.log("::: Form Submitted :::")
     // fetch('http://localhost:8080/test')
