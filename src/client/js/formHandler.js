@@ -17,15 +17,17 @@ function handleSubmit(event) {
             })
             .then(res => res.json())
             .then(function(res) {
+                document.getElementById('results').innerHTML= '<br /> Polarity: ' + res.polarity + '<br /><br /> Subjectivity: ' + res.subjectivity + '<br /><br /> Confidence: ' + res.confidence + '<br /><br /> Text: ' + res.text;
                 // document.getElementById('name').innerHTML= res.polarity
-                document.getElementById('results').innerHTML= res.text
-                document.getElementById('results').innerHTML= res.polarity
+                // document.getElementById('results').innerHTML= 'Text: ' + res.text;
+                // document.getElementById('results').innerHTML= 'Polarity: ' + res.polarity;
                             // projectData.polarity = response.polarity;
                             // projectData.subjectivity = response.subjectivity;
                             // projectData.text = response.text;
                             // projectData.polarity_confidence = response.polarity_confidence;
                             // projectData.subjectivity_confidence = response.subjectivity_confidence;
-            })
+            }
+        )
 
 
     // console.log("::: Form Submitted :::")
