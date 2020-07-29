@@ -9,6 +9,10 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     module: {
+        output: {
+            libraryTarget: 'var',
+            library: 'Client'
+        },
         rules: [
             {
                 test: '/\.js$/',
@@ -36,8 +40,8 @@ module.exports = {
             protectWebpackAssets: false
         })
     ],
-    output: {
-        libraryTarget: 'var',
-        library: 'Client'
-    },
+    // output: {
+    //     libraryTarget: 'var',
+    //     library: 'Client'
+    // },
 }
