@@ -8,11 +8,11 @@ module.exports = {
     mode: 'development',
     devtool: 'source-map',
     stats: 'verbose',
+    output: {
+        libraryTarget: 'var',
+        library: 'Client'
+    },
     module: {
-        output: {
-            libraryTarget: 'var',
-            library: 'Client'
-        },
         rules: [
             {
                 test: '/\.js$/',
